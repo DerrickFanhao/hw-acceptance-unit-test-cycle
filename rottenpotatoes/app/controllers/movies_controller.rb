@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
-   def show_directors
+  def show_directors
     @movie = Movie.find(params[:id])
     if @movie.director.blank?
       flash[:notice] = "'#{@movie.title}' has no director info"
@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
       @movies = Movie.where(director: @movie.director)
     end
   end
-
+  
   def edit
     @movie = Movie.find params[:id]
   end
